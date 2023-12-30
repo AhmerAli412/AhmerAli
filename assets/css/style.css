@@ -145,6 +145,47 @@ button {
 .section_title {
   font-size: var(--h1-font-size);
 }
+/* Your existing styles go here */
+
+/* GitHub Contribution Graph Section Styles */
+#github-section {
+  margin-left: 280px;
+  margin-right: 280px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: green;
+}
+.github-cont{
+  margin-top: 40px;
+}
+#contribution-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  height: 100px;
+}
+
+#contribution-table td {
+  height: 7px;
+  width: 7px;
+  /* border-radius: 1px; */
+  border: 1px solid #0c1414;
+
+}
+
+.color-0 { background-color: #141c24; }
+.color-1 { background-color: #0c442c; }
+.color-2 { background-color: #4cb364; }
+.color-3 { background-color: #4cb364; }
+.color-4 { background-color: #4cb364; }
+
+#contribution-table td:hover {
+  border: 1px solid #0366d6; /* GitHub's hover border color */
+  cursor: pointer;
+}
+
+/* Add any other styles as needed */
+
 
 .section_subtitle {
   display: block;
