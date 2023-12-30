@@ -286,3 +286,5 @@ fetch(apiUrl, {
   .catch((error) => {
     console.error("Error fetching GitHub contributions:", error);
   });
+
+
