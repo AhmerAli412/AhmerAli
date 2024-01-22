@@ -1,6 +1,5 @@
 <div align="center">
 
-<h1>Personal Portfolio Website - v0.1.0</h1>
 
 <h2>
   <a href="https://thepranaygupta.github.io/">thepranaygupta.github.io</a>
