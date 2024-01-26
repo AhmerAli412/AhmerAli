@@ -1014,6 +1014,9 @@ button {
     align-items: center;
   }
 
+
+  
+
   .footer_container {
     grid-template-columns: repeat(3, 1fr);
   }
