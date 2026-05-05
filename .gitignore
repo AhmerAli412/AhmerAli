@@ -53,6 +53,12 @@ Temporary Items
 # Local History for Visual Studio Code
 .history/
 
+### Next.js ###
+node_modules/
+.next/
+out/
+.env*.local
+
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history

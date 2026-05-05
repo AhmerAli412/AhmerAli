@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* Class-based dark mode — `dark:` only when `html` has `.dark` (toggle + storage).
+   Without this, Tailwind v4 follows OS `prefers-color-scheme` and ignores the toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Explicit scan paths so utilities are always generated (fixes “no styles” when
+   auto-detection misses files — e.g. nested folders, Vercel subdir, or Windows). */
+@source "../app";
+@source "../components";
+@source "../hooks";
+@source "../lib";
+
+@theme {
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 7s ease-in-out infinite 1s;
+  --animate-pulse-slow: pulse-glow 4s ease-in-out infinite;
+  --animate-gradient: gradient-shift 8s ease infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(2deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /*
+   * Plain-CSS fallbacks: if the Tailwind build ever fails to attach, the page
+   * still shows the intended light/dark shell (not harsh #000 on #fff).
+   */
+  body {
+    background-color: #fafafa;
+    color: #18181b;
+  }
+  html.dark body {
+    background-color: #09090b;
+    color: #f4f4f5;
+  }
+
+  ::selection {
+    @apply bg-blue-500/25 text-blue-950 dark:text-blue-50;
+  }
+}
+
+/* Header nav active state (scroll spy) */
+header a.nav-link.active-link {
+  @apply bg-blue-100 text-blue-900 shadow-sm ring-1 ring-blue-300/80 dark:bg-blue-950/60 dark:text-blue-100 dark:ring-blue-500/40;
+}
+
+.projects-swiper {
+  --swiper-navigation-size: 22px;
+  --swiper-navigation-color: #fff;
+}
+
+.projects-swiper .swiper-button-next,
+.projects-swiper .swiper-button-prev {
+  @apply flex h-14 w-14 items-center justify-center rounded-2xl border border-zinc-700/80 bg-zinc-900 text-white shadow-lg shadow-zinc-900/20 ring-1 ring-white/10 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-blue-500/50 hover:bg-zinc-800 hover:shadow-blue-900/20 dark:border-zinc-600 dark:bg-zinc-950 dark:hover:border-blue-400/40;
+}
+
+.projects-swiper .swiper-button-next::after,
+.projects-swiper .swiper-button-prev::after {
+  font-family: swiper-icons !important;
+  font-size: var(--swiper-navigation-size);
+  font-weight: 700;
+}
+
+.projects-swiper .swiper-button-disabled {
+  @apply pointer-events-none opacity-35;
+}
+
+.projects-swiper .swiper-pagination {
+  @apply relative bottom-0 mt-10 flex flex-wrap items-center justify-center gap-2;
+}
+
+.projects-swiper .swiper-pagination-bullet {
+  @apply mx-0.5 h-2.5 w-2.5 rounded-full border border-zinc-400/40 bg-zinc-400/30 opacity-100 shadow-inner transition-all duration-300 dark:border-white/15 dark:bg-white/20;
+}
+
+.projects-swiper .swiper-pagination-bullet-active {
+  @apply h-2.5 w-10 rounded-full border-blue-600/40 bg-blue-600 shadow-md shadow-blue-900/25 dark:bg-blue-500 dark:shadow-blue-950/40;
+}
+
