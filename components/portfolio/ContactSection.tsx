@@ -5,7 +5,7 @@ import { FormEvent, useState } from "react";
 
 import { cn } from "@/lib/cn";
 
-const FORMSPREE = "https://formspree.io/f/xyyozeaq";
+const FORMSPREE = "https://formspree.io/f/xqenlobo";
 
 const contactHighlights = [
   { icon: "uil-rocket", label: "Ship-ready builds" },
